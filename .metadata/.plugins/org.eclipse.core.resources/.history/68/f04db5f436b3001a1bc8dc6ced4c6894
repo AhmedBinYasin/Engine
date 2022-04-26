@@ -1,0 +1,255 @@
+
+public class Date {
+	private int day;
+	private int month;
+	private int year;
+	
+	public Date( int day , int month , int year ) {
+		setDay(day);
+		setMonth(month);
+		setYear(year);
+	}
+	
+	public void setDay(int day) {
+		this.day = day;
+	}
+	
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	
+	public void setYear (int year) {
+		this.year = year;
+	}
+	
+	public int getDay() {
+		return day;
+	}
+	
+	public int getMonth() {
+		return month;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void incDay() {
+		day++;
+	}
+	
+	public void incMonth() {
+		month++;
+	}
+	
+	public void incYear() {
+		year++;
+	}
+	
+	public int dayDiff ( Date d1 , Date d2 ) {
+		Date startPoint = null;
+		Date endPoint = null ;
+		int dayDifference=0;
+		
+		if ( d1.getYear() > d2.getYear() ) {
+			startPoint = d2;
+			endPoint = d1;
+		}
+		else if ( d1.getYear() < d2.getYear() ) {
+			startPoint = d1;
+			endPoint = d2;
+		}
+		else {
+			if ( d1.getMonth() > d2.getMonth() ) {
+				startPoint = d2;
+				endPoint = d1;
+			}
+			else if ( d1.getMonth() < d2.getMonth() ) {
+				startPoint = d1;
+				endPoint = d2;
+			}
+			else {
+				if ( d1.getDay() > d2.getDay() ) {
+					startPoint = d2;
+					endPoint = d1;
+				}
+				else if ( d1.getDay() < d2.getDay() ) {
+					startPoint = d1;
+					endPoint = d2;
+				}
+				
+			}
+			if(startPoint == d2) {
+				System.out.println("ok");
+			}
+		
+		}
+		if(startPoint != null) {
+			while ( (startPoint.getDay() != endPoint.getDay())  || (startPoint.getMonth() != endPoint.getMonth()) || 
+				(startPoint.getYear() != endPoint.getYear())) {
+			
+			if( startPoint.getMonth() == 2 ) {
+				if((startPoint.getMonth()%4==0  && startPoint.getMonth()%100!=0) || startPoint.getMonth()%400==0 ) {
+					if( startPoint.getDay() == 29 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					}
+				else if(startPoint.getMonth()%4!=0) {
+					if( startPoint.getDay() == 28 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					}
+				else {
+					startPoint.incDay();
+					dayDifference++;
+					}
+			}
+			else if( startPoint.getMonth()<=7 ) {
+				if ( startPoint.getMonth()%2!=0 ) {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+					}
+				else {
+					if( startPoint.getDay() ==30 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+			}
+			else {
+				if ( startPoint.getMonth()%2!=0 ) {
+					if( startPoint.getDay() ==30 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+					}
+				else if( startPoint.getMonth() == 12 ) {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.setMonth(1);
+						startPoint.incYear();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+				else {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+			}
+			}	
+		}
+		return dayDifference;
+		
+	}
+	
+	public void dayIncrement(int incday) {
+		
+		while(incday!=0) {
+			if(month == 2) {
+				if((year%4 == 0 && year%100!=0) || year%400==0) {
+					if(day == 29) {
+						day=1;
+						month++;
+					}
+					else {
+						day++;
+					}
+				}
+				else {
+					if(day == 28) {
+						day=1;
+						month++;
+					}
+					else {
+						day++;
+					}
+				}
+			}
+			else if(month <= 7) {
+				if ( month%2 !=0 ) {
+					if(day == 31) {
+						month++;
+						day=1;
+					}
+					else {
+						day++;
+					}	
+				}
+				else {
+					if(day == 30) {
+						month++;
+						day=1;
+					}
+					else {
+						day++;
+					}	
+				}
+			}
+			else {
+				if ( month%2 !=0 ) {
+					if(day == 30) {
+						month++;
+						day=1;
+					}
+					else {
+						day++;
+					}	
+				}
+				else if(month == 12) {
+					if( day == 31 ) {
+						month = 1;
+						day = 1;
+						year ++;
+						}
+					else {
+						day++;
+					}
+				}
+				else {
+					if(day == 31) {
+						month++;
+						day=1;
+					}
+					else {
+						day++;
+					}	
+				}
+			}
+			
+			incday--;
+		}
+	}
+	
+}

@@ -1,0 +1,13 @@
+package lab11;
+
+
+
+public class FruitBearingTrees extends Trees implements FruitBearing {
+    public void fruit() {
+        System.out.println("Bears Fruits in season");
+    }
+
+    public void colorOfLeaves() {
+        System.out.println("Color of leaves is green");
+    }
+}

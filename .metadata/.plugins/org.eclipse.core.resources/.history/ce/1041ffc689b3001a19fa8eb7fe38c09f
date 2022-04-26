@@ -1,0 +1,256 @@
+
+public class Date {
+private int day;
+private int month;
+private int year;
+	
+public void setDay(int day) {
+this.day = day;
+}	
+public void setMonth(int month) {
+this.month = month;
+}	
+public void setYear (int year) {
+this.year = year;
+}
+	
+public int getDay() {
+return day;
+}	
+public int getMonth() {
+return month;
+}	
+public int getYear() {
+return year;
+}
+public int datesDiff ( Date d1 , Date d2 ) {
+Date smallerdate = new Date();
+Date biggerdate = new Date() ;
+int dayDifference=0;
+		
+if ( d1.getYear() > d2.getYear() ) {
+smallerdate.day = d2.getDay();
+smallerdate.month = d2.getMonth();
+smallerdate.year = d2.getYear();
+biggerdate = d1;
+}
+else if ( d1.getYear() < d2.getYear() ) {
+	smallerdate.day = d1.getDay();
+	smallerdate.month = d1.getMonth();
+	smallerdate.year = d1.getYear();
+biggerdate = d2;
+}
+
+else {
+if ( d1.getMonth() > d2.getMonth() ) {
+	smallerdate.day = d2.getDay();
+	smallerdate.month = d2.getMonth();
+	smallerdate.year = d2.getYear();
+biggerdate = d1;
+}
+else if ( d1.getMonth() < d2.getMonth() ) {
+	smallerdate.day = d1.getDay();
+	smallerdate.month = d1.getMonth();
+	smallerdate.year = d1.getYear();
+biggerdate = d2;
+}
+else {
+if ( d1.getDay() > d2.getDay() ) {
+	smallerdate.day = d2.getDay();
+	smallerdate.month = d2.getMonth();
+	smallerdate.year = d2.getYear();
+biggerdate = d1;
+}
+else if ( d1.getDay() < d2.getDay() ) {
+	smallerdate.day = d1.getDay();
+	smallerdate.month = d1.getMonth();
+	smallerdate.year = d1.getYear();
+biggerdate = d2;
+}
+}
+}
+
+if(smallerdate!= null && biggerdate!= null) {
+while ( (smallerdate.getDay() != biggerdate.getDay())  || (smallerdate.getMonth() != biggerdate.getMonth()) || (smallerdate.getYear() != biggerdate.getYear())) {
+			
+if( smallerdate.getMonth() == 2 ) {
+if((smallerdate.getYear()%4==0  && smallerdate.getYear()%100!=0) ||    smallerdate.getYear()%400==0  ) {
+if( smallerdate.getDay() == 29 ) {
+smallerdate.setDay(1);
+smallerdate.month++;
+}
+else {
+smallerdate.day++ ;
+}
+}
+else if((smallerdate.getYear()%4!=0 && smallerdate.getYear()%400!=0 ) || smallerdate.getYear()%100==0)  {
+if( smallerdate.getDay() == 28 ) {
+smallerdate.setDay(1);
+smallerdate.month++;
+}
+else {
+smallerdate.day++;
+}
+}
+else {
+smallerdate.day++;
+}
+}
+
+else if( smallerdate.getMonth()<=7 ) {
+if ( smallerdate.getMonth()%2!=0 ) {
+if( smallerdate.getDay() ==31 ) {
+smallerdate.setDay(1);
+smallerdate.month++;
+}
+else {
+smallerdate.day++ ;
+}
+}
+else {
+if( smallerdate.getDay() ==30 ) {
+smallerdate.setDay(1);
+smallerdate.month++ ;
+}
+else {
+smallerdate.day++;
+}
+}
+}
+
+else {
+if ( smallerdate.getMonth()%2!=0 ) {
+if( smallerdate.getDay() ==30 ) {
+smallerdate.setDay(1);
+smallerdate.month++;
+}
+else {
+smallerdate.day++;
+}
+}
+else if( smallerdate.getMonth() == 12 ) {
+if( smallerdate.getDay() ==31 ) {
+smallerdate.setDay(1);
+smallerdate.setMonth(1);
+smallerdate.year++;
+}
+else {
+smallerdate.day++;
+}
+}
+else {
+if( smallerdate.getDay() ==31 ) {
+smallerdate.setDay(1);
+smallerdate.month++;
+}
+else {
+smallerdate.day++;
+}
+}
+}
+dayDifference++;
+}	
+}
+return dayDifference;
+		
+	}
+	
+public void dayIncrement(int incrementday) {
+		
+while(incrementday!=0) {
+if(month == 2) {
+if((year%4 == 0 && year%100!=0) || year%400==0) {
+if(day == 29) {
+day=1;
+month++;
+}
+else {
+day++;
+}
+}
+else {
+if(day == 28) {
+day=1;
+month++;
+}
+else {
+day++;
+}
+}
+}
+else if(month <= 7) {
+if ( month%2 !=0 ) {
+if(day == 31) {
+month++;
+day=1;
+}
+else {
+day++;
+}	
+}
+else {
+if(day == 30) {
+month++;
+day=1;
+}
+else {
+day++;
+}	
+}
+}
+else {
+if ( month%2 !=0 ) {
+if(day == 30) {
+month++;
+day=1;
+}
+else {
+day++;
+}	
+}
+else if(month == 12) {
+if( day == 31 ) {
+month = 1;
+day = 1;
+year ++;
+}
+else {
+day++;
+}
+}
+else {
+if(day == 31) {
+month++;
+day=1;
+}
+else {
+day++;
+}	
+}
+}
+			
+incrementday--;
+}
+System.out.println("The incremented date is "+day+"."+month+"."+year);
+}
+	
+
+
+
+
+	public static void main(String[] args) {
+		Date d1 = new Date();
+		Date d2 = new Date();
+                             d1.setDay(21);
+		d1.setMonth(6);
+		d1.setYear(2020);
+                             d2.setDay(1);
+		d2.setMonth(4);
+		d2.setYear(2025);
+
+System.out.println("The date difference is of "+ d1.datesDiff(d1, d2)+" days.");
+		 d2.dayIncrement(56);
+	
+	
+	
+  }}

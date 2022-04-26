@@ -1,0 +1,13 @@
+package lab11;
+
+	public class Main {
+
+	    public static void main(String[] args) {
+	        FruitBearingTrees Trees=new FruitBearingTrees();
+	        Trees.photosynthesis();
+	        Trees.height();
+	        Trees.age();
+	        Trees.colorOfLeaves();
+	        Trees.fruit();
+	    }
+	}

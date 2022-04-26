@@ -1,0 +1,16 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Date d1 = new Date (21,6,2020);
+		Date d2 = new Date (31,8,2021);
+		System.out.print("When 45 is added to "+d1.print()+" the new date is : ");
+		d1.dayIncrement(45);
+		System.out.print(d1.print());
+		
+		System.out.println("The day difference between "+d1.print()+" and "+d2.print()+" is: "+d1.dayDiff(d1, d2));
+		
+		
+	}
+
+}

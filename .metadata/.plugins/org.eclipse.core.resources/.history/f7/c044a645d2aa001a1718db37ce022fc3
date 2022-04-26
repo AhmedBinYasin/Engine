@@ -1,0 +1,19 @@
+package lab12;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+
+public class Window extends JFrame {
+	
+	
+	public Window() {
+		super("Celcius Calculator");
+		setSize(300 , 150);
+		setLayout(new FlowLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setVisible(true);
+	}
+
+}

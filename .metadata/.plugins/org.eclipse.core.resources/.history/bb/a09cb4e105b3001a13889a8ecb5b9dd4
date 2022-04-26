@@ -1,0 +1,30 @@
+
+import java.util.Scanner;
+public class ASSIGNMENT {
+    public static void main(String[] args) {
+         Scanner in=new Scanner(System.in);
+        int dd1=in.nextInt();
+         int mm1=in.nextInt();
+         int yy1=in.nextInt();
+        if(0<dd1 && dd1<=31 && 0<mm1 && mm1<=12){
+            
+           System.out.println("DATE 1 ENTERED IS"+""+dd1+"-"+""+mm1+"-"+""+yy1);
+        }
+        else{
+            System.out.println("INCORRECT DATE ENTERED");
+        }
+    
+      int dd2=in.nextInt();
+       int mm2=in.nextInt();
+       int yy2=in.nextInt();
+        if(0<dd2 && dd2<=31){
+            if(0<mm2 && mm2<=12){
+             System.out.println("DATE 1 ENTERED IS"+""+dd2+"-"+""+mm2+"-"+""+yy2);
+            }
+        }
+        else{
+            System.out.println("INCORRECT DATE ENTERED");
+        }
+          
+    }
+}

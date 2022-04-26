@@ -1,0 +1,14 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Date d1 = new Date (21,6,2020);
+		Date d2 = new Date (31,8,2021);
+		System.out.println("The date difference between "+d1.print()+" and "+d2.print()+" is "+
+		d1.dayDiff(d1, d2)+" days");
+		d2.dayIncrement(400);
+		System.out.println(d2.getDay()+" "+d2.getMonth()+" "+d2.getYear());
+		
+	}
+
+}

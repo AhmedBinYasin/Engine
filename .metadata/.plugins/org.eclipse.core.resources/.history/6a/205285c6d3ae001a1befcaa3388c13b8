@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+			String n = "Dot saw I was tod";
+			System.out.println(n.length());
+	}
+
+}

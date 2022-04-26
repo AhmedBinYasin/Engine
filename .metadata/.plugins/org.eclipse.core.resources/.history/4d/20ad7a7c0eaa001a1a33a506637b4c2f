@@ -1,0 +1,11 @@
+package lab11;
+
+
+public abstract class Trees extends Plant {
+    public void hight() {
+        System.out.println("The Hight is = 20 Meters");
+    }
+    public void age() {
+        System.out.println("The Age = 12 years");
+    }
+}

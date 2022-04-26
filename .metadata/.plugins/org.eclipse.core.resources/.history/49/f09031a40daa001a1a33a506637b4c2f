@@ -1,0 +1,18 @@
+package Hierarchy;
+
+public interface KingdomPlantae {
+    public void photosynthesis();
+    public void hight();
+    public void age();
+    public void colorOfLeaves();
+}
+
+
+
+
+
+
+
+
+
+

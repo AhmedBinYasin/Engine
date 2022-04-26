@@ -1,0 +1,13 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Date d1 = new Date (21,6,2020);
+		Date d2 = new Date (1,1,2020);
+		
+		d2.dayIncrement(100);
+		System.out.println(d2.getDay()+" "+d2.getMonth()+" "+d2.getYear());
+		
+	}
+
+}

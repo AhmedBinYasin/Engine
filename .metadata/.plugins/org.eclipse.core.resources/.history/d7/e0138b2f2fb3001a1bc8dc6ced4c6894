@@ -1,0 +1,170 @@
+
+public class Date {
+	private int day;
+	private int month;
+	private int year;
+	
+	public Date( int day , int month , int year ) {
+		setDay(day);
+		setMonth(month);
+		setYear(year);
+	}
+	
+	public void setDay(int day) {
+		this.day = day;
+	}
+	
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	
+	public void setYear (int year) {
+		this.year = year;
+	}
+	
+	public int getDay() {
+		return day;
+	}
+	
+	public int getMonth() {
+		return month;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void incDay() {
+		day++;
+	}
+	
+	public void incMonth() {
+		month++;
+	}
+	
+	public void incYear() {
+		year++;
+	}
+	
+	public int dayDiff ( Date d1 , Date d2 ) {
+		Date startPoint = null;
+		Date endPoint = null ;
+		int dayDifference=0;
+		
+		if ( d1.getYear() > d2.getYear() ) {
+			startPoint = d2;
+			endPoint = d1;
+		}
+		else if ( d1.getYear() < d2.getYear() ) {
+			startPoint = d1;
+			endPoint = d2;
+		}
+		else {
+			if ( d1.getMonth() > d2.getMonth() ) {
+				startPoint = d2;
+				endPoint = d1;
+			}
+			else if ( d1.getMonth() < d2.getMonth() ) {
+				startPoint = d1;
+				endPoint = d2;
+			}
+			else {
+				if ( d1.getDay() > d2.getDay() ) {
+					startPoint = d2;
+					endPoint = d1;
+				}
+				else if ( d1.getDay() < d2.getDay() ) {
+					startPoint = d1;
+					endPoint = d2;
+				}
+				
+			}
+		}
+		
+		while ( (startPoint.getDay() == endPoint.getDay())  && (startPoint.getMonth() == startPoint.getMonth()) && 
+				(startPoint.getYear() == endPoint.getYear())) {
+			
+			if( startPoint.getMonth() == 2 ) {
+				if( startPoint.getDay() == 29 ) {
+					startPoint.setDay(1);
+					startPoint.incMonth();
+					dayDifference++;
+				}
+				else {
+					startPoint.incDay();
+					dayDifference++;
+				}
+			}
+			else if( startPoint.getMonth()<=7 ) {
+				if ( startPoint.getMonth()%2!=0 ) {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+					}
+				else {
+					if( startPoint.getDay() ==30 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+			}
+			else {
+				if ( startPoint.getMonth()%2!=0 ) {
+					if( startPoint.getDay() ==30 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+					}
+				else if( startPoint.getMonth() == 12 ) {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.setMonth(1);
+						startPoint.incYear();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+				else {
+					if( startPoint.getDay() ==31 ) {
+						startPoint.setDay(1);
+						startPoint.incMonth();
+						dayDifference++;
+					}
+					else {
+						startPoint.incDay();
+						dayDifference++;
+					}
+				}
+			}
+			
+		}
+return dayDifference;
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+}

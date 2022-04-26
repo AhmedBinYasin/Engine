@@ -1,0 +1,12 @@
+import javax.swing.JFrame;
+
+public class Window extends JFrame{
+	
+	public Window () {
+		setSize(200,300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setVisible(true);
+	}
+
+}

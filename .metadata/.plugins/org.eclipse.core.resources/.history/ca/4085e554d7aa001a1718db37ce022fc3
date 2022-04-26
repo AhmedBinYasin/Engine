@@ -1,0 +1,57 @@
+package lab12;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Window extends JFrame {
+		private JLabel celcius,fehrenheit;
+		private JButton convert;
+		private JTextField input;
+		private JPanel panel1,panel2;
+		
+	
+	public Window() {
+		super("Celcius Calculator");
+		setSize(275 , 100);
+		setLayout(new BorderLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		panel1 = new JPanel();
+		panel1.setLayout(new FlowLayout());
+		panel2 = new JPanel();
+		panel2.setLayout(new FlowLayout());
+		
+		add(panel1 , BorderLayout.NORTH);
+		add(panel2 , BorderLayout.SOUTH);
+		
+		celcius = new JLabel("Celcius");
+		fehrenheit = new JLabel("	Fehrenheit");
+		convert = new JButton("Convert");
+		input = new JTextField("" , 6);
+		
+		convert.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) {
+				double temperature = Double.parseDouble(input.getText());
+				int temp_fehrenheit=(int)(temperature*9/5)+32;
+				fehrenheit.setText(temp_fehrenheit + " Fehrenheit");
+				
+			} 
+				} );
+		
+		panel1.add(input);
+		panel1.add(celcius);
+		panel2.add(convert);
+		panel2.add(fehrenheit);
+		
+		setVisible(true);
+	}
+
+}
